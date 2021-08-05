@@ -27,3 +27,6 @@ stages:
         dockerfile: '$(Build.SourcesDirectory)/azure-vote/Dockerfile'
         tags: |
           $(tag)
+          - script: |
+      (docker rm -f tflsoccer) 2> /dev/null
+      docker run -d --name votingapp -p 80:8080 votingapp:$(Build.BuildId)
