@@ -26,6 +26,6 @@ stages:
         command: build
         dockerfile: '$(Build.SourcesDirectory)/azure-vote/Dockerfile'
        
-      - script: |
+    - script: |
       (docker rm -f votingapp) 2> /dev/null
-      docker run -d --name votingapp -p 80:8080 votingapp:$(Build.BuildId)
+      docker run -d --name votingapp -p 8001:8001 votingapp:$(Build.BuildId)
